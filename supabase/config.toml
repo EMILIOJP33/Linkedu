@@ -1,0 +1,23 @@
+[functions.stripe-webhook]
+verify_jwt = false
+
+[functions.connect-teacher]
+verify_jwt = true
+
+[functions.create-booking-checkout]
+verify_jwt = true
+
+[functions.create-study-room-checkout]
+verify_jwt = true
+
+[functions.join-study-room-checkout]
+verify_jwt = true
+
+[functions.create-video-token]
+verify_jwt = true
+
+[functions.cancel-paid-session]
+verify_jwt = true
+
+[functions.create-teacher-promotion-checkout]
+verify_jwt = true

@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="LinkedU conecta estudiantes y docentes para aprender online."
+    />
+    <title>LinkedU — Aprende a tu manera</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#" aria-label="LinkedU, inicio">
+          <span class="brand-mark" aria-hidden="true">L</span>
+          <span>linked<span class="brand-u">u</span></span>
+        </a>
+
+        <div class="sidebar-label">MENÚ</div>
+        <nav class="main-nav" aria-label="Navegación principal">
+          <a class="nav-link active" href="#inicio" data-nav="inicio" aria-current="page">
+            <span class="nav-icon" aria-hidden="true">⌂</span> Inicio
+          </a>
+          <a class="nav-link" href="#docentes" data-nav="docentes">
+            <span class="nav-icon" aria-hidden="true">⌕</span> Encontrar docente
+          </a>
+          <a class="nav-link" href="#clases" data-nav="clases" id="classesNav">
+            <span class="nav-icon" aria-hidden="true">▦</span> Mis clases
+            <span class="nav-count">2</span>
+          </a>
+          <a class="nav-link" href="#mensajes" data-nav="mensajes" id="messagesNav">
+            <span class="nav-icon" aria-hidden="true">▱</span> Mensajes
+            <span class="nav-dot" aria-label="Mensajes sin leer"></span>
+          </a>
+          <a class="nav-link" href="#favoritos" data-nav="favoritos" id="favoritesNav">
+            <span class="nav-icon" aria-hidden="true">♡</span> Favoritos
+          </a>
+          <a class="nav-link" href="#perfil" data-nav="perfil" id="settingsNav">
+            <span class="nav-icon" aria-hidden="true">⚙</span> Perfil y ajustes
+          </a>
+        </nav>
+
+        <div class="sidebar-label community-label">TU ESPACIO</div>
+        <nav class="main-nav" aria-label="Tu espacio">
+          <a class="nav-link" href="#grupos" data-nav="grupos">
+            <span class="nav-icon" aria-hidden="true">♧</span> Grupos de estudio
+          </a>
+          <a class="nav-link" href="#proyectos" data-nav="proyectos">
+            <span class="nav-icon" aria-hidden="true">✳</span> Proyectos
+          </a>
+        </nav>
+
+        <div class="sidebar-spacer"></div>
+        <div class="sidebar-help">
+          <div class="help-spark" aria-hidden="true">✦</div>
+          <strong>Aprender juntos<br />llega más lejos.</strong>
+          <span>Encuentra tu próxima clase favorita.</span>
+          <a href="#docentes" class="help-link">Explorar docentes <span aria-hidden="true">↗</span></a>
+          <div class="help-orbit orbit-one"></div>
+          <div class="help-orbit orbit-two"></div>
+        </div>
+        <button class="profile-link" id="profileButton" type="button" aria-label="Abrir mi perfil">
+          <span class="avatar avatar-small avatar-student">LM</span>
+          <span class="profile-copy"><strong id="sidebarName">Invitada</strong><small id="sidebarRole">Estudiante</small></span>
+          <span class="profile-more" aria-hidden="true">···</span>
+        </button>
+      </aside>
+
+      <main class="main-content" id="inicio">
+        <header class="topbar">
+          <button class="mobile-menu" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+          <div class="breadcrumb"><span>Tu espacio</span><span class="crumb-separator">/</span><strong>Inicio</strong></div>
+          <div class="topbar-actions">
+            <label class="search-box">
+              <span aria-hidden="true">⌕</span>
+              <input id="globalSearch" type="search" placeholder="¿Qué quieres aprender?" aria-label="Buscar docentes o materias" />
+              <kbd>⌘ K</kbd>
+            </label>
+            <button class="icon-button notification-button" aria-label="Notificaciones">
+              ♧<span class="notification-dot"></span>
+            </button>
+            <button class="auth-button" id="authButton" type="button">Entrar</button>
+          </div>
+        </header>
+
+        <div class="page-content">
+          <section class="welcome-row">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-line"></span> <span id="currentDate"></span></p>
+              <h1>¡Hola, <span id="welcomeName">aprende algo nuevo</span>! <span class="wave" aria-hidden="true">✦</span></h1>
+              <p class="welcome-subtitle">Un pequeño paso hoy, un gran aprendizaje mañana.</p>
+            </div>
+            <button class="button button-outline" id="shareProfile"><span aria-hidden="true">＋</span> Completar mi perfil</button>
+          </section>
+
+          <section class="hero-card" aria-labelledby="heroTitle">
+            <div class="hero-copy">
+              <span class="hero-kicker"><span class="kicker-spark">✦</span> TU PRÓXIMA GRAN IDEA EMPIEZA AQUÍ</span>
+              <h2 id="heroTitle">Aprende algo<br />que te <em>apasiona.</em></h2>
+              <p>Conecta con docentes increíbles y aprende a tu ritmo, desde donde quieras.</p>
+              <a class="button button-light" href="#docentes">Encuentra tu docente <span aria-hidden="true">→</span></a>
+              <div class="hero-social-proof">
+                <div class="mini-avatars" aria-hidden="true">
+                  <span class="mini-avatar mini-one">A</span><span class="mini-avatar mini-two">M</span><span class="mini-avatar mini-three">S</span>
+                </div>
+                <span>Más de <strong>1.200 estudiantes</strong> aprendiendo hoy</span>
+              </div>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+              <div class="hero-sun"></div>
+              <div class="hero-shape shape-back"></div>
+              <div class="hero-shape shape-front"></div>
+              <div class="hero-book book-one"></div>
+              <div class="hero-book book-two"></div>
+              <div class="hero-note note-one">✦</div>
+              <div class="hero-note note-two">✧</div>
+              <div class="hero-note note-three">↗</div>
+              <div class="hero-caption"><span class="caption-dot"></span> Tu curiosidad es tu superpoder</div>
+            </div>
+          </section>
+
+          <section class="quick-categories" aria-label="Explorar materias">
+            <div class="section-heading compact-heading">
+              <div><p class="section-overline">EMPIEZA POR LO QUE TE MUEVE</p><h2>Explora tus intereses</h2></div>
+              <a class="text-link" href="#docentes">Ver todas <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="category-list">
+              <button class="category-chip active" data-filter="Todas"><span class="category-icon icon-language">文</span><span>Todas</span></button>
+              <button class="category-chip" data-filter="Informática"><span class="category-icon icon-tech">⌘</span><span>Informática</span></button>
+              <button class="category-chip" data-filter="Ciencias"><span class="category-icon icon-science">⚛</span><span>Ciencias</span></button>
+              <button class="category-chip" data-filter="Matemáticas"><span class="category-icon icon-math">∑</span><span>Matemáticas</span></button>
+              <button class="category-chip" data-filter="Lengua"><span class="category-icon icon-language">Aa</span><span>Lengua</span></button>
+              <button class="category-chip" data-filter="Conocimiento del medio"><span class="category-icon icon-science">🌿</span><span>Conocimiento del medio</span></button>
+              <button class="category-chip" data-filter="Historia"><span class="category-icon icon-design">⌛</span><span>Historia</span></button>
+              <button class="category-chip" data-filter="Biología"><span class="category-icon icon-science">⚕</span><span>Biología</span></button>
+              <button class="category-chip" data-filter="Idiomas"><span class="category-icon icon-language">あ</span><span>Idiomas</span></button>
+              <button class="category-chip" data-filter="Diseño"><span class="category-icon icon-design">◈</span><span>Diseño</span></button>
+              <button class="category-chip" data-filter="Música"><span class="category-icon icon-music">♫</span><span>Música</span></button>
+            </div>
+          </section>
+
+          <section class="tutors-section" id="docentes">
+            <div class="section-heading">
+              <div><p class="section-overline">PERSONAS QUE INSPIRAN</p><h2>Docentes para ti <span class="heading-spark">✦</span></h2><p class="section-description">Perfiles increíbles, a un clic de distancia.</p></div>
+              <label class="language-filter">
+                <span>Filtrar por idioma</span>
+                <select id="languageFilter" aria-label="Filtrar docentes por idioma">
+                  <option value="Todos">Todos los idiomas</option>
+                  <option value="Inglés">Inglés</option>
+                  <option value="Francés">Francés</option>
+                  <option value="Alemán">Alemán</option>
+                  <option value="Japonés">Japonés</option>
+                  <option value="Italiano">Italiano</option>
+                  <option value="Chino">Chino</option>
+                  <option value="Español">Español para extranjeros</option>
+                </select>
+              </label>
+            </div>
+            <div class="advanced-filters" aria-label="Filtros y ordenación de docentes">
+              <label><span>Ordenar por</span><select id="sortTeachers"><option value="destacado">Destacados</option><option value="distancia">Cercanía</option><option value="precio-asc">Precio: menor a mayor</option><option value="precio-desc">Precio: mayor a menor</option><option value="puntuacion">Mejor puntuación</option></select></label>
+              <label><span>Precio máximo</span><select id="maxPrice"><option value="0">Cualquier precio</option><option value="18">Hasta 18 €</option><option value="20">Hasta 20 €</option><option value="22">Hasta 22 €</option><option value="25">Hasta 25 €</option></select></label>
+              <label><span>Modalidad</span><select id="teacherModality"><option value="Todas">Todas</option><option value="Online">Online</option><option value="Presencial">Presencial</option></select></label>
+              <button class="button button-outline clear-filters" id="clearFilters" type="button">Limpiar filtros</button>
+            </div>
+            <div class="tutor-grid" id="tutorGrid">
+              <article class="tutor-card" data-category="Idiomas" data-language="Inglés" data-name="sofia martinez ingles conversación native fluidez negocios">
+                <div class="tutor-photo tutor-sofia"><span class="online-status" aria-label="Disponible"></span><button class="favorite-button" aria-label="Guardar a Sofía en favoritos">♡</button></div>
+                <div class="tutor-info">
+                  <div class="tutor-title-row"><div><h3>Sofía Martínez</h3><p>Inglés · Conversación</p></div><div class="rating">★ <strong>4.9</strong> <span>(38)</span></div></div>
+                  <div class="tutor-tags"><span>🇬🇧 Inglés C2</span><span>Online</span></div>
+                  <p class="tutor-bio">Clases cercanas y dinámicas para ganar fluidez, confianza y soltura en entrevistas.</p>
+                  <div class="tutor-bottom"><span class="tutor-price"><strong>18 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Sofía Martínez" type="button">Mensaje</button><button class="button button-small book-button" data-teacher="Sofía Martínez">Reservar <span aria-hidden="true">→</span></button></div>
+                </div>
+              </article>
+              <article class="tutor-card" data-category="Matemáticas" data-language="Español" data-name="marcos ruiz matemáticas física español eso bachillerato">
+                <div class="tutor-photo tutor-marcos"><span class="online-status" aria-label="Disponible"></span><button class="favorite-button" aria-label="Guardar a Marcos en favoritos">♡</button></div>
+                <div class="tutor-info">
+                  <div class="tutor-title-row"><div><h3>Marcos Ruiz</h3><p>Matemáticas · Física</p></div><div class="rating">★ <strong>5.0</strong> <span>(52)</span></div></div>
+                  <div class="tutor-tags"><span>ESO y Bachillerato</span><span>Online</span></div>
+                  <p class="tutor-bio">Explico problemas complejos paso a paso y preparo exámenes con ejercicios reales.</p>
+                  <div class="tutor-bottom"><span class="tutor-price"><strong>22 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Marcos Ruiz" type="button">Mensaje</button><button class="button button-small book-button" data-teacher="Marcos Ruiz">Reservar <span aria-hidden="true">→</span></button></div>
+                </div>
+              </article>
+              <article class="tutor-card" data-category="Diseño" data-language="Español" data-name="ines navarro diseño ilustración creatividad figma portfolio">
+                <div class="tutor-photo tutor-ines"><span class="online-status" aria-label="Disponible"></span><button class="favorite-button" aria-label="Guardar a Inés en favoritos">♡</button></div>
+                <div class="tutor-info">
+                  <div class="tutor-title-row"><div><h3>Inés Navarro</h3><p>Diseño · Ilustración</p></div><div class="rating">★ <strong>4.8</strong> <span>(27)</span></div></div>
+                  <div class="tutor-tags"><span>Creatividad</span><span>Online</span></div>
+                  <p class="tutor-bio">Te ayudo a encontrar tu estilo, construir un portfolio y desarrollar proyectos originales.</p>
+                  <div class="tutor-bottom"><span class="tutor-price"><strong>20 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Inés Navarro" type="button">Mensaje</button><button class="button button-small book-button" data-teacher="Inés Navarro">Reservar <span aria-hidden="true">→</span></button></div>
+                </div>
+              </article>
+              <article class="tutor-card" data-category="Idiomas" data-language="Francés" data-name="camille dubois frances conversación dele preparación">
+                <div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Camille Dubois" loading="lazy" /><span class="online-status" aria-label="Disponible"></span><button class="favorite-button" aria-label="Guardar a Camille en favoritos">♡</button></div>
+                <div class="tutor-info"><div class="tutor-title-row"><div><h3>Camille Dubois</h3><p>Francés · Conversación</p></div><div class="rating">★ <strong>4.9</strong> <span>(41)</span></div></div><div class="tutor-tags"><span>🇫🇷 Francés C2</span><span>Online</span></div><p class="tutor-bio">Perfecciona tu pronunciación y vive el francés con clases culturales y naturales.</p><div class="tutor-bottom"><span class="tutor-price"><strong>19 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Camille Dubois" type="button">Mensaje</button><button class="button button-small book-button" data-teacher="Camille Dubois">Reservar <span aria-hidden="true">→</span></button></div></div>
+              </article>
+              <article class="tutor-card" data-category="Idiomas" data-language="Alemán" data-name="lukas hoffmann aleman deutsch zertifikat conversación negocios">
+                <div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Lukas Hoffmann" loading="lazy" /><span class="online-status" aria-label="Disponible"></span><button class="favorite-button" aria-label="Guardar a Lukas en favoritos">♡</button></div>
+                <div class="tutor-info"><div class="tutor-title-row"><div><h3>Lukas Hoffmann</h3><p>Alemán · Preparación</p></div><div class="rating">★ <strong>4.8</strong> <span>(34)</span></div></div><div class="tutor-tags"><span>🇩🇪 Alemán B2-C1</span><span>Online</span></div><p class="tutor-bio">Preparación clara para certificados, trabajo y vida cotidiana en países germanófonos.</p><div class="tutor-bottom"><span class="tutor-price"><strong>21 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Lukas Hoffmann" type="button">Mensaje</button><button class="button button-small book-button" data-teacher="Lukas Hoffmann">Reservar <span aria-hidden="true">→</span></button></div></div>
+              </article>
+              <article class="tutor-card" data-category="Idiomas" data-language="Japonés" data-name="aiko tanaka japonés japonés nihongo jlpt conversación cultura">
+                <div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Aiko Tanaka" loading="lazy" /><span class="online-status" aria-label="Disponible"></span><button class="favorite-button" aria-label="Guardar a Aiko en favoritos">♡</button></div>
+                <div class="tutor-info"><div class="tutor-title-row"><div><h3>Aiko Tanaka</h3><p>Japonés · JLPT</p></div><div class="rating">★ <strong>5.0</strong> <span>(46)</span></div></div><div class="tutor-tags"><span>🇯🇵 Japonés N5-N2</span><span>Online</span></div><p class="tutor-bio">Aprende japonés desde cero con kanji, conversación y claves culturales prácticas.</p><div class="tutor-bottom"><span class="tutor-price"><strong>24 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Aiko Tanaka" type="button">Mensaje</button><button class="button button-small book-button" data-teacher="Aiko Tanaka">Reservar <span aria-hidden="true">→</span></button></div></div>
+              </article>
+              <article class="tutor-card" data-category="Idiomas" data-language="Italiano" data-name="luca ferrari italiano conversación cocina cultura hsk">
+                <div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Luca Ferrari" loading="lazy" /><span class="online-status" aria-label="Disponible"></span><button class="favorite-button" aria-label="Guardar a Luca en favoritos">♡</button></div>
+                <div class="tutor-info"><div class="tutor-title-row"><div><h3>Luca Ferrari</h3><p>Italiano · Conversación</p></div><div class="rating">★ <strong>4.7</strong> <span>(29)</span></div></div><div class="tutor-tags"><span>🇮🇹 Italiano C1</span><span>Online</span></div><p class="tutor-bio">Habla italiano con naturalidad mediante temas cotidianos, viajes y cultura.</p><div class="tutor-bottom"><span class="tutor-price"><strong>17 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Luca Ferrari" type="button">Mensaje</button><button class="button button-small book-button" data-teacher="Luca Ferrari">Reservar <span aria-hidden="true">→</span></button></div></div>
+              </article>
+              <article class="tutor-card" data-category="Idiomas" data-language="Chino" data-name="mei lin chino mandarín hsk pronunciación conversación">
+                <div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Mei Lin" loading="lazy" /><span class="online-status" aria-label="Disponible"></span><button class="favorite-button" aria-label="Guardar a Mei en favoritos">♡</button></div>
+                <div class="tutor-info"><div class="tutor-title-row"><div><h3>Mei Lin</h3><p>Chino · HSK</p></div><div class="rating">★ <strong>4.9</strong> <span>(33)</span></div></div><div class="tutor-tags"><span>🇨🇳 Mandarín HSK</span><span>Online</span></div><p class="tutor-bio">Domina tonos, caracteres y conversación real con un método visual y progresivo.</p><div class="tutor-bottom"><span class="tutor-price"><strong>23 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Mei Lin" type="button">Mensaje</button><button class="button button-small book-button" data-teacher="Mei Lin">Reservar <span aria-hidden="true">→</span></button></div></div>
+              </article>
+              <article class="tutor-card" data-category="Idiomas" data-language="Español" data-name="valeria santos español extranjeros ele inmigración conversación">
+                <div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Valeria Santos" loading="lazy" /><span class="online-status" aria-label="Disponible"></span><button class="favorite-button" aria-label="Guardar a Valeria en favoritos">♡</button></div>
+                <div class="tutor-info"><div class="tutor-title-row"><div><h3>Valeria Santos</h3><p>Español · Para extranjeros</p></div><div class="rating">★ <strong>4.8</strong> <span>(37)</span></div></div><div class="tutor-tags"><span>🇪🇸 ELE A1-C1</span><span>Online</span></div><p class="tutor-bio">Español práctico para vivir, estudiar o trabajar con seguridad desde el primer día.</p><div class="tutor-bottom"><span class="tutor-price"><strong>18 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Valeria Santos" type="button">Mensaje</button><button class="button button-small book-button" data-teacher="Valeria Santos">Reservar <span aria-hidden="true">→</span></button></div></div>
+              </article>
+              <article class="tutor-card" data-category="Informática" data-language="Español" data-name="david chen informática programación desarrollo web javascript react">
+                <div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="David Chen" loading="lazy" /><span class="online-status" aria-label="Disponible"></span><button class="favorite-button" aria-label="Guardar a David en favoritos">♡</button></div>
+                <div class="tutor-info"><div class="tutor-title-row"><div><h3>David Chen</h3><p>Informática · Desarrollo web</p></div><div class="rating">★ <strong>5.0</strong> <span>(58)</span></div></div><div class="tutor-tags"><span>JavaScript · React</span><span>Online</span></div><p class="tutor-bio">Crea proyectos reales aprendiendo JavaScript, React y buenas prácticas desde cero.</p><div class="tutor-bottom"><span class="tutor-price"><strong>26 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="David Chen" type="button">Mensaje</button><button class="button button-small book-button" data-teacher="David Chen">Reservar <span aria-hidden="true">→</span></button></div></div>
+              </article>
+              <article class="tutor-card" data-category="Matemáticas" data-language="Español" data-name="laura gil matemáticas álgebra primaria secundaria"><div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Laura Gil" loading="lazy" /><span class="online-status"></span><button class="favorite-button" aria-label="Guardar a Laura en favoritos">♡</button></div><div class="tutor-info"><div class="tutor-title-row"><div><h3>Laura Gil</h3><p>Matemáticas · Álgebra</p></div><div class="rating">★ <strong>4.9</strong> <span>(44)</span></div></div><div class="tutor-tags"><span>Primaria y ESO</span><span>Online</span></div><p class="tutor-bio">Álgebra visual con ejemplos cercanos para quitar el miedo a los números.</p><div class="tutor-bottom"><span class="tutor-price"><strong>17 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Laura Gil">Mensaje</button><button class="button button-small book-button" data-teacher="Laura Gil">Reservar →</button></div></div></article>
+              <article class="tutor-card" data-category="Matemáticas" data-language="Español" data-name="pablo serrano geometría trigonometría bachillerato"><div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Pablo Serrano" loading="lazy" /><span class="online-status"></span><button class="favorite-button" aria-label="Guardar a Pablo en favoritos">♡</button></div><div class="tutor-info"><div class="tutor-title-row"><div><h3>Pablo Serrano</h3><p>Matemáticas · Geometría</p></div><div class="rating">★ <strong>4.8</strong> <span>(31)</span></div></div><div class="tutor-tags"><span>Bachillerato</span><span>Online</span></div><p class="tutor-bio">Geometría y trigonometría explicadas con esquemas claros y ejercicios guiados.</p><div class="tutor-bottom"><span class="tutor-price"><strong>20 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Pablo Serrano">Mensaje</button><button class="button button-small book-button" data-teacher="Pablo Serrano">Reservar →</button></div></div></article>
+              <article class="tutor-card" data-category="Matemáticas" data-language="Español" data-name="clara romero cálculo estadística universidad"><div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Clara Romero" loading="lazy" /><span class="online-status"></span><button class="favorite-button" aria-label="Guardar a Clara en favoritos">♡</button></div><div class="tutor-info"><div class="tutor-title-row"><div><h3>Clara Romero</h3><p>Matemáticas · Cálculo</p></div><div class="rating">★ <strong>5.0</strong> <span>(49)</span></div></div><div class="tutor-tags"><span>Universidad</span><span>Online</span></div><p class="tutor-bio">Cálculo diferencial e integral con razonamiento práctico y preparación universitaria.</p><div class="tutor-bottom"><span class="tutor-price"><strong>24 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Clara Romero">Mensaje</button><button class="button button-small book-button" data-teacher="Clara Romero">Reservar →</button></div></div></article>
+              <article class="tutor-card" data-category="Matemáticas" data-language="Español" data-name="mateo lorente estadística selectividad probabilidades"><div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Mateo Lorente" loading="lazy" /><span class="online-status"></span><button class="favorite-button" aria-label="Guardar a Mateo en favoritos">♡</button></div><div class="tutor-info"><div class="tutor-title-row"><div><h3>Mateo Lorente</h3><p>Matemáticas · Estadística</p></div><div class="rating">★ <strong>4.7</strong> <span>(26)</span></div></div><div class="tutor-tags"><span>Probabilidad</span><span>Online</span></div><p class="tutor-bio">Mejorarás probabilidad y estadística resolviendo casos reales paso a paso.</p><div class="tutor-bottom"><span class="tutor-price"><strong>19 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Mateo Lorente">Mensaje</button><button class="button button-small book-button" data-teacher="Mateo Lorente">Reservar →</button></div></div></article>
+              <article class="tutor-card" data-category="Matemáticas" data-language="Español" data-name="elena costa matemáticas primaria refuerzo deberes"><div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Elena Costa" loading="lazy" /><span class="online-status"></span><button class="favorite-button" aria-label="Guardar a Elena en favoritos">♡</button></div><div class="tutor-info"><div class="tutor-title-row"><div><h3>Elena Costa</h3><p>Matemáticas · Primaria</p></div><div class="rating">★ <strong>4.9</strong> <span>(36)</span></div></div><div class="tutor-tags"><span>Deberes</span><span>Online</span></div><p class="tutor-bio">Refuerzo positivo de operaciones, problemas y estrategias de cálculo mental.</p><div class="tutor-bottom"><span class="tutor-price"><strong>16 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Elena Costa">Mensaje</button><button class="button button-small book-button" data-teacher="Elena Costa">Reservar →</button></div></div></article>
+              <article class="tutor-card" data-category="Lengua" data-language="Español" data-name="lucía mora lengua literatura sintaxis gramática"><div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Lucía Mora" loading="lazy" /><span class="online-status"></span><button class="favorite-button" aria-label="Guardar a Lucía en favoritos">♡</button></div><div class="tutor-info"><div class="tutor-title-row"><div><h3>Lucía Mora</h3><p>Lengua · Literatura</p></div><div class="rating">★ <strong>4.9</strong> <span>(42)</span></div></div><div class="tutor-tags"><span>ESO y Bachillerato</span><span>Online</span></div><p class="tutor-bio">Literatura, sintaxis y comentarios de texto con técnicas fáciles de recordar.</p><div class="tutor-bottom"><span class="tutor-price"><strong>19 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Lucía Mora">Mensaje</button><button class="button button-small book-button" data-teacher="Lucía Mora">Reservar →</button></div></div></article>
+              <article class="tutor-card" data-category="Lengua" data-language="Español" data-name="alejandro vera lengua ortografía redacción primaria"><div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Alejandro Vera" loading="lazy" /><span class="online-status"></span><button class="favorite-button" aria-label="Guardar a Alejandro en favoritos">♡</button></div><div class="tutor-info"><div class="tutor-title-row"><div><h3>Alejandro Vera</h3><p>Lengua · Ortografía</p></div><div class="rating">★ <strong>4.8</strong> <span>(29)</span></div></div><div class="tutor-tags"><span>Primaria</span><span>Online</span></div><p class="tutor-bio">Ortografía y redacción sin aburrimiento, con actividades creativas y prácticas.</p><div class="tutor-bottom"><span class="tutor-price"><strong>16 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Alejandro Vera">Mensaje</button><button class="button button-small book-button" data-teacher="Alejandro Vera">Reservar →</button></div></div></article>
+              <article class="tutor-card" data-category="Lengua" data-language="Español" data-name="marina sanz lengua análisis morfosintaxis selectividad"><div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Marina Sanz" loading="lazy" /><span class="online-status"></span><button class="favorite-button" aria-label="Guardar a Marina en favoritos">♡</button></div><div class="tutor-info"><div class="tutor-title-row"><div><h3>Marina Sanz</h3><p>Lengua · Morfosintaxis</p></div><div class="rating">★ <strong>5.0</strong> <span>(51)</span></div></div><div class="tutor-tags"><span>Selectividad</span><span>Online</span></div><p class="tutor-bio">Análisis sintáctico paso a paso y preparación completa de pruebas oficiales.</p><div class="tutor-bottom"><span class="tutor-price"><strong>21 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Marina Sanz">Mensaje</button><button class="button button-small book-button" data-teacher="Marina Sanz">Reservar →</button></div></div></article>
+              <article class="tutor-card" data-category="Lengua" data-language="Español" data-name="gabriel toro comprensión lectora escritura creativa"><div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Gabriel Toro" loading="lazy" /><span class="online-status"></span><button class="favorite-button" aria-label="Guardar a Gabriel en favoritos">♡</button></div><div class="tutor-info"><div class="tutor-title-row"><div><h3>Gabriel Toro</h3><p>Lengua · Comprensión lectora</p></div><div class="rating">★ <strong>4.7</strong> <span>(23)</span></div></div><div class="tutor-tags"><span>Técnicas de estudio</span><span>Online</span></div><p class="tutor-bio">Lectura comprensiva, resumir, argumentar y mejorar la expresión escrita.</p><div class="tutor-bottom"><span class="tutor-price"><strong>18 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Gabriel Toro">Mensaje</button><button class="button button-small book-button" data-teacher="Gabriel Toro">Reservar →</button></div></div></article>
+              <article class="tutor-card" data-category="Lengua" data-language="Español" data-name="nerea blanco lengua española literatura hispanoamericana"><div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Nerea Blanco" loading="lazy" /><span class="online-status"></span><button class="favorite-button" aria-label="Guardar a Nerea en favoritos">♡</button></div><div class="tutor-info"><div class="tutor-title-row"><div><h3>Nerea Blanco</h3><p>Lengua · Literatura</p></div><div class="rating">★ <strong>4.8</strong> <span>(33)</span></div></div><div class="tutor-tags"><span>Lengua hispánica</span><span>Online</span></div><p class="tutor-bio">Descubre autores y corrientes literarias con comentarios claros y activos.</p><div class="tutor-bottom"><span class="tutor-price"><strong>20 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Nerea Blanco">Mensaje</button><button class="button button-small book-button" data-teacher="Nerea Blanco">Reservar →</button></div></div></article>
+              <article class="tutor-card" data-category="Conocimiento del medio" data-language="Español" data-name="andrea león medio ambiente naturaleza geografía primaria"><div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Andrea León" loading="lazy" /><span class="online-status"></span><button class="favorite-button" aria-label="Guardar a Andrea en favoritos">♡</button></div><div class="tutor-info"><div class="tutor-title-row"><div><h3>Andrea León</h3><p>Medio · Naturaleza</p></div><div class="rating">★ <strong>5.0</strong> <span>(47)</span></div></div><div class="tutor-tags"><span>Primaria</span><span>Online</span></div><p class="tutor-bio">Naturaleza y medio ambiente mediante experimentos visuales y curiosidades.</p><div class="tutor-bottom"><span class="tutor-price"><strong>17 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Andrea León">Mensaje</button><button class="button button-small book-button" data-teacher="Andrea León">Reservar →</button></div></div></article>
+              <article class="tutor-card" data-category="Conocimiento del medio" data-language="Español" data-name="raul ortega geografía mapas comunidades paises"><div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Raúl Ortega" loading="lazy" /><span class="online-status"></span><button class="favorite-button" aria-label="Guardar a Raúl en favoritos">♡</button></div><div class="tutor-info"><div class="tutor-title-row"><div><h3>Raúl Ortega</h3><p>Medio · Geografía</p></div><div class="rating">★ <strong>4.8</strong> <span>(38)</span></div></div><div class="tutor-tags"><span>Mapas y países</span><span>Online</span></div><p class="tutor-bio">Aprende geografía con mapas interactivos y asociaciones fáciles de recordar.</p><div class="tutor-bottom"><span class="tutor-price"><strong>18 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Raúl Ortega">Mensaje</button><button class="button button-small book-button" data-teacher="Raúl Ortega">Reservar →</button></div></div></article>
+              <article class="tutor-card" data-category="Conocimiento del medio" data-language="Español" data-name="laia puig ecosistemas animales plantas medio"><div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Laia Puig" loading="lazy" /><span class="online-status"></span><button class="favorite-button" aria-label="Guardar a Laia en favoritos">♡</button></div><div class="tutor-info"><div class="tutor-title-row"><div><h3>Laia Puig</h3><p>Medio · Ecosistemas</p></div><div class="rating">★ <strong>4.9</strong> <span>(31)</span></div></div><div class="tutor-tags"><span>Animales y plantas</span><span>Online</span></div><p class="tutor-bio">Ecosistemas, cadenas alimentarias y cuidado del planeta con ejemplos locales.</p><div class="tutor-bottom"><span class="tutor-price"><strong>17 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Laia Puig">Mensaje</button><button class="button button-small book-button" data-teacher="Laia Puig">Reservar →</button></div></div></article>
+              <article class="tutor-card" data-category="Conocimiento del medio" data-language="Español" data-name="ismael vega cuerpo humano salud nutrición"><div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Ismael Vega" loading="lazy" /><span class="online-status"></span><button class="favorite-button" aria-label="Guardar a Ismael en favoritos">♡</button></div><div class="tutor-info"><div class="tutor-title-row"><div><h3>Ismael Vega</h3><p>Medio · Salud</p></div><div class="rating">★ <strong>4.7</strong> <span>(28)</span></div></div><div class="tutor-tags"><span>Cuerpo humano</span><span>Online</span></div><p class="tutor-bio">Aparatos, nutrición y hábitos saludables explicados de forma clara y visual.</p><div class="tutor-bottom"><span class="tutor-price"><strong>18 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Ismael Vega">Mensaje</button><button class="button button-small book-button" data-teacher="Ismael Vega">Reservar →</button></div></div></article>
+              <article class="tutor-card" data-category="Conocimiento del medio" data-language="Español" data-name="sara iglesias ciencias naturales examen primaria"><div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Sara Iglesias" loading="lazy" /><span class="online-status"></span><button class="favorite-button" aria-label="Guardar a Sara en favoritos">♡</button></div><div class="tutor-info"><div class="tutor-title-row"><div><h3>Sara Iglesias</h3><p>Medio · Ciencias naturales</p></div><div class="rating">★ <strong>4.9</strong> <span>(35)</span></div></div><div class="tutor-tags"><span>Refuerzo escolar</span><span>Online</span></div><p class="tutor-bio">Refuerzo general de conocimientos naturales y preparación para controles.</p><div class="tutor-bottom"><span class="tutor-price"><strong>16 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Sara Iglesias">Mensaje</button><button class="button button-small book-button" data-teacher="Sara Iglesias">Reservar →</button></div></div></article>
+              <article class="tutor-card" data-category="Historia" data-language="Español" data-name="ivo martín historia antigua roma egipto"><div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Ivo Martín" loading="lazy" /><span class="online-status"></span><button class="favorite-button" aria-label="Guardar a Ivo en favoritos">♡</button></div><div class="tutor-info"><div class="tutor-title-row"><div><h3>Ivo Martín</h3><p>Historia · Antigua</p></div><div class="rating">★ <strong>4.8</strong> <span>(30)</span></div></div><div class="tutor-tags"><span>Egipto y Roma</span><span>Online</span></div><p class="tutor-bio">Civilizaciones antiguas narradas con cronologías visuales y mapas.</p><div class="tutor-bottom"><span class="tutor-price"><strong>18 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Ivo Martín">Mensaje</button><button class="button button-small book-button" data-teacher="Ivo Martín">Reservar →</button></div></div></article>
+              <article class="tutor-card" data-category="Historia" data-language="Español" data-name="olivia rey historia contemporánea siglos xx bachillerato"><div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Olivia Rey" loading="lazy" /><span class="online-status"></span><button class="favorite-button" aria-label="Guardar a Olivia en favoritos">♡</button></div><div class="tutor-info"><div class="tutor-title-row"><div><h3>Olivia Rey</h3><p>Historia · Contemporánea</p></div><div class="rating">★ <strong>4.9</strong> <span>(39)</span></div></div><div class="tutor-tags"><span>Bachillerato</span><span>Online</span></div><p class="tutor-bio">Historia contemporánea, guerras mundiales y fuentes históricas con contexto.</p><div class="tutor-bottom"><span class="tutor-price"><strong>20 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Olivia Rey">Mensaje</button><button class="button button-small book-button" data-teacher="Olivia Rey">Reservar →</button></div></div></article>
+              <article class="tutor-card" data-category="Historia" data-language="Español" data-name="nicolás valdes historia españa edades"><div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Nicolás Valdés" loading="lazy" /><span class="online-status"></span><button class="favorite-button" aria-label="Guardar a Nicolás en favoritos">♡</button></div><div class="tutor-info"><div class="tutor-title-row"><div><h3>Nicolás Valdés</h3><p>Historia de España</p></div><div class="rating">★ <strong>4.7</strong> <span>(27)</span></div></div><div class="tutor-tags"><span>ESO</span><span>Online</span></div><p class="tutor-bio">Conecta etapas, personajes y hechos clave para entender España y Europa.</p><div class="tutor-bottom"><span class="tutor-price"><strong>18 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Nicolás Valdés">Mensaje</button><button class="button button-small book-button" data-teacher="Nicolás Valdés">Reservar →</button></div></div></article>
+              <article class="tutor-card" data-category="Historia" data-language="Español" data-name="maya fuentes geografía historia arte medieval"><div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Maya Fuentes" loading="lazy" /><span class="online-status"></span><button class="favorite-button" aria-label="Guardar a Maya en favoritos">♡</button></div><div class="tutor-info"><div class="tutor-title-row"><div><h3>Maya Fuentes</h3><p>Historia del Arte</p></div><div class="rating">★ <strong>4.9</strong> <span>(34)</span></div></div><div class="tutor-tags"><span>Edad Media</span><span>Online</span></div><p class="tutor-bio">Analiza obras y movimientos artísticos relacionándolos con su época.</p><div class="tutor-bottom"><span class="tutor-price"><strong>19 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Maya Fuentes">Mensaje</button><button class="button button-small book-button" data-teacher="Maya Fuentes">Reservar →</button></div></div></article>
+              <article class="tutor-card" data-category="Historia" data-language="Español" data-name="dario silva historia universal americana"><div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Darío Silva" loading="lazy" /><span class="online-status"></span><button class="favorite-button" aria-label="Guardar a Darío en favoritos">♡</button></div><div class="tutor-info"><div class="tutor-title-row"><div><h3>Darío Silva</h3><p>Historia universal</p></div><div class="rating">★ <strong>4.8</strong> <span>(25)</span></div></div><div class="tutor-tags"><span>Exámenes</span><span>Online</span></div><p class="tutor-bio">Cronologías, mapas y estrategias para aprobar historia sin estudiar de memoria.</p><div class="tutor-bottom"><span class="tutor-price"><strong>17 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Darío Silva">Mensaje</button><button class="button button-small book-button" data-teacher="Darío Silva">Reservar →</button></div></div></article>
+              <article class="tutor-card" data-category="Biología" data-language="Español" data-name="noa díaz biología genética célula bachillerato"><div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Noa Díaz" loading="lazy" /><span class="online-status"></span><button class="favorite-button" aria-label="Guardar a Noa en favoritos">♡</button></div><div class="tutor-info"><div class="tutor-title-row"><div><h3>Noa Díaz</h3><p>Biología · Genética</p></div><div class="rating">★ <strong>5.0</strong> <span>(44)</span></div></div><div class="tutor-tags"><span>Bachillerato</span><span>Online</span></div><p class="tutor-bio">Genética, ADN y herencia con esquemas y problemas resueltos paso a paso.</p><div class="tutor-bottom"><span class="tutor-price"><strong>22 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Noa Díaz">Mensaje</button><button class="button button-small book-button" data-teacher="Noa Díaz">Reservar →</button></div></div></article>
+              <article class="tutor-card" data-category="Biología" data-language="Español" data-name="javier luna biología anatomía fisiología universidad"><div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Javier Luna" loading="lazy" /><span class="online-status"></span><button class="favorite-button" aria-label="Guardar a Javier en favoritos">♡</button></div><div class="tutor-info"><div class="tutor-title-row"><div><h3>Javier Luna</h3><p>Biología · Anatomía</p></div><div class="rating">★ <strong>4.8</strong> <span>(36)</span></div></div><div class="tutor-tags"><span>Universidad</span><span>Online</span></div><p class="tutor-bio">Anatomía y fisiología con material visual y técnicas para memorizar sin estrés.</p><div class="tutor-bottom"><span class="tutor-price"><strong>24 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Javier Luna">Mensaje</button><button class="button button-small book-button" data-teacher="Javier Luna">Reservar →</button></div></div></article>
+              <article class="tutor-card" data-category="Biología" data-language="Español" data-name="vera solano biología celular laboratorio secundaria"><div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Vera Solano" loading="lazy" /><span class="online-status"></span><button class="favorite-button" aria-label="Guardar a Vera en favoritos">♡</button></div><div class="tutor-info"><div class="tutor-title-row"><div><h3>Vera Solano</h3><p>Biología · Célula</p></div><div class="rating">★ <strong>4.9</strong> <span>(32)</span></div></div><div class="tutor-tags"><span>ESO</span><span>Online</span></div><p class="tutor-bio">Células, tejidos y microscopía con láminas claras y ejemplos cotidianos.</p><div class="tutor-bottom"><span class="tutor-price"><strong>18 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Vera Solano">Mensaje</button><button class="button button-small book-button" data-teacher="Vera Solano">Reservar →</button></div></div></article>
+              <article class="tutor-card" data-category="Biología" data-language="Español" data-name="bruno casas biología ecología medio ambiente"><div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Bruno Casas" loading="lazy" /><span class="online-status"></span><button class="favorite-button" aria-label="Guardar a Bruno en favoritos">♡</button></div><div class="tutor-info"><div class="tutor-title-row"><div><h3>Bruno Casas</h3><p>Biología · Ecología</p></div><div class="rating">★ <strong>4.7</strong> <span>(24)</span></div></div><div class="tutor-tags"><span>Ecosistemas</span><span>Online</span></div><p class="tutor-bio">Ecología, poblaciones y sostenibilidad con casos y datos ambientales.</p><div class="tutor-bottom"><span class="tutor-price"><strong>19 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Bruno Casas">Mensaje</button><button class="button button-small book-button" data-teacher="Bruno Casas">Reservar →</button></div></div></article>
+              <article class="tutor-card" data-category="Biología" data-language="Español" data-name="alma río biología evo evolución zoología"><div class="tutor-photo tutor-dynamic"><img class="tutor-profile-image" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&amp;fit=crop&amp;w=720&amp;q=85" alt="Alma Río" loading="lazy" /><span class="online-status"></span><button class="favorite-button" aria-label="Guardar a Alma en favoritos">♡</button></div><div class="tutor-info"><div class="tutor-title-row"><div><h3>Alma Río</h3><p>Biología · Evolución</p></div><div class="rating">★ <strong>4.8</strong> <span>(29)</span></div></div><div class="tutor-tags"><span>Zoología</span><span>Online</span></div><p class="tutor-bio">Evolución, biodiversidad y zoología con historias naturales fascinantes.</p><div class="tutor-bottom"><span class="tutor-price"><strong>21 €</strong> <small>/ hora</small></span><button class="tutor-contact demo-contact" data-teacher="Alma Río">Mensaje</button><button class="button button-small book-button" data-teacher="Alma Río">Reservar →</button></div></div></article>
+            </div>
+            <p class="empty-state" id="emptyState" hidden>No encontramos docentes con esa búsqueda. Prueba otra materia o nombre.</p>
+          </section>
+
+          <section class="bottom-grid" id="proyectos">
+            <article class="next-class-card" id="clases">
+              <div class="section-heading small-section-heading"><div><p class="section-overline">TU AGENDA</p><h2>Próxima clase</h2></div><button class="more-button" aria-label="Más opciones">···</button></div>
+              <div class="upcoming-class">
+                <div class="class-date"><strong id="upcomingDateNumber">--</strong><span id="upcomingDateMonth">---</span></div>
+                <div class="class-details"><strong id="upcomingClassTitle">Aún no tienes clases</strong><span id="upcomingClassPartner">Tus reservas aparecerán aquí</span><small id="upcomingDateTime"></small></div>
+                <button class="join-button" id="joinClass"><span aria-hidden="true">▦</span> Ver agenda</button>
+              </div>
+              <div class="class-progress" id="classProgress" hidden><span></span></div>
+              <div class="class-footer"><span id="countdownLabel">Reserva clases desde los perfiles</span><span class="video-label"><span></span> Videollamadas seguras</span></div>
+            </article>
+            <article class="study-group-card" id="grupos">
+              <div class="group-decoration decoration-one"></div><div class="group-decoration decoration-two"></div>
+              <div class="group-content"><span class="group-eyebrow">APRENDER ACOMPAÑADO</span><h2>Las ideas crecen<br />cuando se comparten.</h2><p>Organiza una sala de estudio y aprende en buena compañía.</p><button class="button button-light group-button" id="createRoomButton" type="button">Crear o buscar sala <span aria-hidden="true">→</span></button></div>
+              <div class="group-illustration" aria-hidden="true"><span class="group-person person-one">L</span><span class="group-person person-two">A</span><span class="group-person person-three">M</span><span class="group-bubble">✦</span></div>
+            </article>
+          </section>
+
+          <footer class="page-footer"><span>© 2025 LinkedU</span><span>Aprender nos conecta <span class="footer-heart">♥</span></span><a href="#ayuda">¿Necesitas ayuda?</a></footer>
+        </div>
+      </main>
+    </div>
+
+    <dialog class="account-dialog wide-dialog teacher-profile-dialog" id="teacherProfileDialog" aria-labelledby="teacherProfileTitle">
+      <form method="dialog" class="dialog-close-form"><button class="dialog-close" aria-label="Cerrar">×</button></form>
+      <div class="teacher-profile-hero">
+        <img id="teacherProfilePhoto" alt="" />
+        <div><p class="section-overline">PERFIL DEL DOCENTE</p><h2 id="teacherProfileTitle"></h2><p id="teacherProfileSubject"></p></div>
+      </div>
+      <p class="dialog-description" id="teacherProfileBio"></p>
+      <div class="teacher-profile-meta" id="teacherProfileMeta"></div>
+      <h3>Horarios disponibles</h3>
+      <div class="availability-options" id="teacherProfileAvailability"></div>
+      <h3>Reseñas de alumnos</h3>
+      <div class="profile-reviews" id="teacherProfileReviews"></div>
+      <div class="profile-actions">
+        <button class="button button-outline" id="teacherProfileMessage" type="button">Enviar mensaje</button>
+        <button class="button" id="teacherProfileBook" type="button">Reservar clase</button>
+      </div>
+    </dialog>
+
+    <dialog class="booking-dialog" id="mockBookingDialog" aria-labelledby="mockBookingTitle">
+      <form method="dialog" class="dialog-close-form"><button class="dialog-close" aria-label="Cerrar">×</button></form>
+      <div class="dialog-icon">✦</div>
+      <p class="section-overline">RESERVA RÁPIDA</p>
+      <h2 id="mockBookingTitle">Reserva una clase</h2>
+      <p class="dialog-description">Elige un horario con <strong id="mockBookingTeacher"></strong>.</p>
+      <form id="mockBookingForm">
+        <label for="mockBookingDate">Día y hora</label>
+        <input id="mockBookingDate" type="datetime-local" required />
+        <p class="form-message" id="mockBookingMessage" role="status"></p>
+        <button class="button booking-submit" type="submit">Confirmar reserva <span aria-hidden="true">→</span></button>
+      </form>
+    </dialog>
+
+    <dialog class="booking-dialog" id="bookingDialog" aria-labelledby="bookingTitle">
+      <form method="dialog" class="dialog-close-form"><button class="dialog-close" aria-label="Cerrar">×</button></form>
+      <div class="dialog-icon">✦</div>
+      <p class="section-overline">TU PRÓXIMO APRENDIZAJE</p>
+      <h2 id="bookingTitle">Reserva una clase</h2>
+      <p class="dialog-description">Estás a un paso de aprender algo nuevo con <strong id="selectedTeacher">tu docente</strong>.</p>
+      <form id="bookingForm">
+        <label for="lessonStart">Día y hora de inicio</label>
+        <input id="lessonStart" name="starts_at" type="datetime-local" required />
+        <div class="booking-price"><span>Clase online · 1 hora · comisión incluida</span><strong id="bookingPrice">—</strong></div>
+        <p class="price-breakdown" id="bookingFee">LinkedU retiene el 8 % del pago; el docente recibe el resto.</p>
+        <p class="form-message" id="bookingMessage" role="status" aria-live="polite"></p>
+        <button class="button booking-submit" type="submit">Continuar al pago seguro <span aria-hidden="true">→</span></button>
+      </form>
+      <p class="dialog-note">Pagarás de forma segura en Stripe. La plaza se confirma cuando Stripe notifique el pago.</p>
+    </dialog>
+
+    <dialog class="account-dialog" id="authDialog" aria-labelledby="authTitle">
+      <form method="dialog" class="dialog-close-form"><button class="dialog-close" aria-label="Cerrar">×</button></form>
+      <div class="dialog-icon">L</div>
+      <p class="section-overline">TU ESPACIO DE APRENDIZAJE</p>
+      <h2 id="authTitle">Bienvenida a LinkedU</h2>
+      <p class="dialog-description" id="authDescription">Entra en tu cuenta o crea una para conectar con docentes.</p>
+      <div class="auth-tabs" role="tablist" aria-label="Acceso a LinkedU">
+        <button class="auth-tab active" id="loginTab" type="button" role="tab" aria-selected="true">Iniciar sesión</button>
+        <button class="auth-tab" id="signupTab" type="button" role="tab" aria-selected="false">Crear cuenta</button>
+      </div>
+      <form id="authForm">
+        <label for="authName" id="authNameLabel" hidden>Nombre</label>
+        <input id="authName" name="name" type="text" autocomplete="name" maxlength="80" placeholder="Tu nombre" hidden />
+        <label for="authEmail">Correo electrónico</label>
+        <input id="authEmail" name="email" type="email" autocomplete="email" placeholder="tu@email.com" required />
+        <label for="authPassword">Contraseña</label>
+        <input id="authPassword" name="password" type="password" autocomplete="current-password" minlength="8" placeholder="Mínimo 8 caracteres" required />
+        <p class="form-message" id="authMessage" role="status" aria-live="polite"></p>
+        <button class="button booking-submit" id="authSubmit" type="submit">Iniciar sesión <span aria-hidden="true">→</span></button>
+      </form>
+      <button class="button button-outline demo-login-button" id="demoLoginButton" type="button">Entrar como usuario demo</button>
+      <p class="dialog-note">Tus datos se guardan de forma segura en tu cuenta.</p>
+    </dialog>
+
+    <dialog class="account-dialog" id="profileDialog" aria-labelledby="profileTitle">
+      <form method="dialog" class="dialog-close-form"><button class="dialog-close" aria-label="Cerrar">×</button></form>
+      <div class="dialog-icon">✦</div>
+      <p class="section-overline">TU PERFIL LINKEDU</p>
+      <h2 id="profileTitle">Cuéntanos sobre ti</h2>
+      <p class="dialog-description">Completa lo esencial. Podrás actualizarlo cuando quieras.</p>
+      <form id="profileForm">
+        <label for="profileName">Nombre</label>
+        <input id="profileName" name="full_name" type="text" autocomplete="name" maxlength="80" required />
+        <label for="profileRole">Quiero participar como</label>
+        <select id="profileRole" name="role" required>
+          <option value="alumno">Alumno/a</option>
+          <option value="docente">Docente</option>
+          <option value="centro">Centro educativo / empresa</option>
+        </select>
+        <label for="profileHeadline">Titular breve</label>
+        <input id="profileHeadline" name="headline" type="text" maxlength="100" placeholder="Ej. Profesora de inglés y conversación" />
+        <label for="profileSubject">Materia o especialidad</label>
+        <input id="profileSubject" name="subject" type="text" maxlength="60" placeholder="Ej. Inglés, matemáticas, diseño..." />
+        <label for="profileBio">Sobre mí (máximo 160 caracteres)</label>
+        <textarea id="profileBio" name="bio_short" maxlength="160" rows="3" placeholder="Qué enseñas, qué aprendes o qué buscas"></textarea>
+        <label for="profileLanguages">Idiomas</label>
+        <input id="profileLanguages" name="languages" type="text" maxlength="120" placeholder="Español, Inglés C1" />
+        <label for="profileCity">Ciudad</label>
+        <input id="profileCity" name="city" type="text" maxlength="80" autocomplete="address-level2" />
+        <label for="profileRate">Precio por hora (solo docentes)</label>
+        <input id="profileRate" name="hourly_rate" type="number" min="0.5" max="99999" step="0.5" placeholder="20" />
+        <fieldset class="availability-fields">
+          <legend>Disponibilidad semanal (hora de Madrid)</legend>
+          <div class="weekday-list">
+            <label><input type="checkbox" name="availability_days" value="1" /> L</label>
+            <label><input type="checkbox" name="availability_days" value="2" /> M</label>
+            <label><input type="checkbox" name="availability_days" value="3" /> X</label>
+            <label><input type="checkbox" name="availability_days" value="4" /> J</label>
+            <label><input type="checkbox" name="availability_days" value="5" /> V</label>
+            <label><input type="checkbox" name="availability_days" value="6" /> S</label>
+            <label><input type="checkbox" name="availability_days" value="7" /> D</label>
+          </div>
+          <div class="availability-time">
+            <label for="profileAvailabilityStart">Desde</label><input id="profileAvailabilityStart" name="availability_start" type="time" required />
+            <label for="profileAvailabilityEnd">Hasta</label><input id="profileAvailabilityEnd" name="availability_end" type="time" required />
+          </div>
+        </fieldset>
+        <label for="profileAvatarFile">Foto o logo (JPG, PNG o WebP; máximo 5 MB)</label>
+        <input id="profileAvatarFile" name="avatar_file" type="file" accept="image/jpeg,image/png,image/webp" />
+        <input id="profileAvatar" name="avatar_url" type="hidden" />
+        <div class="profile-avatar-preview" id="profileAvatarPreview" hidden>
+          <img id="profileAvatarPreviewImage" alt="Vista previa de la foto o logo del perfil" />
+          <button class="button button-outline" id="removeProfileAvatar" type="button">Quitar foto</button>
+        </div>
+        <label class="checkbox-label"><input id="profilePublic" name="is_public" type="checkbox" checked /> Mostrar mi perfil en la búsqueda pública</label>
+        <p class="form-message" id="profileMessage" role="status" aria-live="polite"></p>
+        <button class="button booking-submit" type="submit">Guardar perfil <span aria-hidden="true">→</span></button>
+        <button class="button button-outline booking-submit" id="payoutSetupButton" type="button" hidden>Configurar cobros con Stripe</button>
+        <section class="promotion-panel" id="promotionPanel" hidden>
+          <div class="promotion-status" id="promotionStatus"></div>
+          <button class="button promotion-button booking-submit" id="promoteButton" type="button">⭐ Promocionar durante 15 días hábiles · 24,99 €</button>
+          <p class="dialog-note">Tu perfil aparecerá destacado entre los primeros docentes durante 15 días de lunes a viernes (sin contar festivos). Un solo pago, sin renovación automática. El perfil debe estar público y tener una materia.</p>
+        </section>
+      </form>
+    </dialog>
+
+    <dialog class="account-dialog wide-dialog" id="sessionsDialog" aria-labelledby="sessionsTitle">
+      <form method="dialog" class="dialog-close-form"><button class="dialog-close" aria-label="Cerrar">×</button></form>
+      <div class="dialog-icon">▦</div><p class="section-overline">TU AGENDA</p>
+      <h2 id="sessionsTitle">Mis clases y salas</h2>
+      <p class="dialog-description">Tus reservas pagadas. Puedes cancelar y solicitar el reembolso completo hasta 24 horas antes del inicio.</p>
+      <div class="session-list" id="sessionList"></div>
+      <p class="form-message" id="sessionsMessage" role="status" aria-live="polite"></p>
+    </dialog>
+
+    <dialog class="account-dialog wide-dialog" id="chatDialog" aria-labelledby="chatTitle">
+      <form method="dialog" class="dialog-close-form"><button class="dialog-close" aria-label="Cerrar">×</button></form>
+      <div class="dialog-icon">▱</div><p class="section-overline">CONTACTO DIRECTO</p>
+      <h2 id="chatTitle">Mensajes</h2>
+      <div class="chat-layout">
+        <div class="conversation-list" id="conversationList"></div>
+        <section class="chat-panel" aria-label="Conversación">
+          <div class="chat-placeholder" id="chatPlaceholder">Elige una conversación o contacta con un docente.</div>
+          <div class="chat-active" id="chatActive" hidden>
+            <header class="chat-header"><strong id="chatPartnerName"></strong><span>Chat directo</span></header>
+            <div class="chat-messages" id="chatMessages" aria-live="polite"></div>
+            <div class="chat-attachment-preview" id="chatAttachmentPreview" hidden>
+              <img id="chatAttachmentPreviewImage" alt="Vista previa de la imagen que vas a enviar" />
+              <span id="chatAttachmentName"></span>
+              <button class="button button-outline" id="removeChatAttachment" type="button" aria-label="Quitar imagen adjunta">×</button>
+            </div>
+            <form class="chat-compose" id="chatForm">
+              <label class="chat-image-button" for="chatImageFile" title="Adjuntar una imagen" aria-label="Adjuntar una imagen">▧</label>
+              <input id="chatImageFile" type="file" accept="image/jpeg,image/png,image/webp" hidden />
+              <label class="sr-only" for="chatInput">Escribe un mensaje</label>
+              <input id="chatInput" name="message" maxlength="3000" placeholder="Escribe un mensaje..." autocomplete="off" />
+              <button class="button button-small" type="submit" aria-label="Enviar mensaje">Enviar →</button>
+            </form>
+          </div>
+        </section>
+      </div>
+      <p class="form-message" id="chatError" role="status" aria-live="polite"></p>
+    </dialog>
+
+    <dialog class="account-dialog" id="studyRoomDialog" aria-labelledby="studyRoomTitle">
+      <form method="dialog" class="dialog-close-form"><button class="dialog-close" aria-label="Cerrar">×</button></form>
+      <div class="dialog-icon">♧</div><p class="section-overline">APRENDER EN COMPAÑÍA</p>
+      <h2 id="studyRoomTitle">Salas de estudio</h2>
+      <p class="dialog-description">Crea una sala o únete con el código que te han compartido. Cada participante paga 2 €/hora.</p>
+      <form id="studyRoomForm">
+        <label for="roomTitle">Tema de estudio</label>
+        <input id="roomTitle" name="title" maxlength="100" placeholder="Ej. Preparar examen de biología" required />
+        <label for="roomStart">Día y hora</label>
+        <input id="roomStart" name="starts_at" type="datetime-local" required />
+        <label for="roomDuration">Duración</label>
+        <select id="roomDuration" name="duration_minutes"><option value="60">1 hora · 2 € por persona</option><option value="120">2 horas · 4 € por persona</option><option value="180">3 horas · 6 € por persona</option></select>
+        <label for="roomCapacity">Participantes (máximo)</label>
+        <select id="roomCapacity" name="capacity"><option value="4">4 personas</option><option value="6">6 personas</option><option value="8" selected>8 personas</option><option value="10">10 personas</option></select>
+        <p class="form-message" id="studyRoomMessage" role="status" aria-live="polite"></p>
+        <button class="button booking-submit" type="submit">Crear sala y pagar mi plaza <span aria-hidden="true">→</span></button>
+      </form>
+      <div class="room-join">
+        <label for="joinRoomId">¿Tienes un código de sala?</label>
+        <div><input id="joinRoomId" type="text" placeholder="Pega el código de sala" /><button class="button button-outline" id="joinRoomButton" type="button">Unirme</button></div>
+      </div>
+      <div class="available-rooms"><h3>Salas próximas</h3><div class="room-list" id="roomList"></div></div>
+    </dialog>
+
+    <dialog class="video-dialog" id="videoDialog" aria-labelledby="videoTitle">
+      <header class="video-header"><div><p class="section-overline">SESIÓN LINKEDU</p><h2 id="videoTitle">Videollamada</h2></div><button class="dialog-close" id="leaveVideo" type="button" aria-label="Salir de la videollamada">×</button></header>
+      <p class="form-message" id="videoMessage" role="status" aria-live="polite">Conectando a la sala segura…</p>
+      <div class="video-stage" id="videoStage"></div>
+      <div class="video-controls">
+        <button class="video-control" id="toggleMic" type="button" disabled>🎙 Silenciar</button>
+        <button class="video-control" id="toggleCamera" type="button" disabled>▣ Cámara</button>
+        <button class="video-control video-leave" id="endVideo" type="button">Salir</button>
+      </div>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
